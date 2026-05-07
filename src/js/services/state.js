@@ -1,5 +1,4 @@
 import { BOARD_SIZE, EMPTY } from '../types/constants.js';
-<<<<<<< HEAD
 import { debounce } from '../utils/debounce.js';
 
 let cellUpdateListener = null;
@@ -37,10 +36,6 @@ const rowHandler = (rowIndex) => ({
 });
 
 const internalState = {
-=======
-
-export const gameState = {
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
     board: [],
     solution: [],
     given: [],
@@ -52,7 +47,6 @@ export const gameState = {
     gameActive: false
 };
 
-<<<<<<< HEAD
 export const gameState = new Proxy(internalState, {
     set(target, prop, value) {
         if (prop === 'board') {
@@ -91,10 +85,6 @@ export function restoreState(savedState) {
 }
 
 export function resetState(puzzle, solution, given) {
-=======
-export function resetState(puzzle, solution, given) {
-    gameState.board = puzzle.map(row => [...row]);
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
     gameState.solution = solution.map(row => [...row]);
     gameState.given = given.map(row => [...row]);
     gameState.notes = Array.from({ length: BOARD_SIZE }, () =>
@@ -105,10 +95,7 @@ export function resetState(puzzle, solution, given) {
     gameState.selectedCell = null;
     gameState.notesMode = false;
     gameState.gameActive = true;
-<<<<<<< HEAD
     gameState.board = puzzle.map(row => [...row]);
-=======
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
 }
 
 export function placeNumber(row, col, num) {
@@ -120,14 +107,8 @@ export function placeNumber(row, col, num) {
         prevNotes: new Set(gameState.notes[row][col]) 
     });
     
-<<<<<<< HEAD
     gameState.notes[row][col] = new Set();
     gameState.board[row][col] = num;
-=======
-    gameState.board[row][col] = num;
-    gameState.notes[row][col] = new Set();
-    
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
     return true;
 }
 
@@ -140,14 +121,8 @@ export function eraseNumber(row, col) {
         prevNotes: new Set(gameState.notes[row][col]) 
     });
     
-<<<<<<< HEAD
     gameState.notes[row][col] = new Set();
     gameState.board[row][col] = EMPTY;
-=======
-    gameState.board[row][col] = EMPTY;
-    gameState.notes[row][col] = new Set();
-    
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
     return true;
 }
 
@@ -166,14 +141,11 @@ export function toggleNote(row, col, num) {
         gameState.notes[row][col].add(num);
     }
     
-<<<<<<< HEAD
     if (cellUpdateListener) {
         cellUpdateListener(row, col, gameState.board[row][col], false, gameState.notes[row][col]);
     }
     
     saveState();
-=======
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
     return true;
 }
 
@@ -181,17 +153,12 @@ export function undo() {
     if (gameState.history.length === 0) return null;
     
     const action = gameState.history.pop();
-<<<<<<< HEAD
     gameState.notes[action.row][action.col] = action.prevNotes;
     gameState.board[action.row][action.col] = action.prevValue;
     
     if (action.prevValue === EMPTY && cellUpdateListener) {
         cellUpdateListener(action.row, action.col, EMPTY, false, action.prevNotes);
     }
-=======
-    gameState.board[action.row][action.col] = action.prevValue;
-    gameState.notes[action.row][action.col] = action.prevNotes;
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
     
     return action;
 }

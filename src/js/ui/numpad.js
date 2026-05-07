@@ -9,7 +9,6 @@ const messageEl = document.getElementById('message');
  *                             and returns its occurrence count on the board.
  *                             Used to visually disable completed numbers.
  */
-<<<<<<< HEAD
 let numpadBtns = [];
 let numpadElement = null;
 
@@ -40,31 +39,6 @@ export function renderNumpad(countFn) {
         } else {
             btn.classList.remove('numpad-btn--completed');
         }
-=======
-export function renderNumpad(countFn) {
-    let numpad = document.getElementById('numpad');
-
-    if (!numpad) {
-        numpad = document.createElement('div');
-        numpad.id = 'numpad';
-        container.insertBefore(numpad, messageEl);
-    }
-
-    numpad.innerHTML = '';
-
-    for (let n = 1; n <= 9; n++) {
-        const btn = document.createElement('button');
-        btn.className = 'numpad-btn';
-        btn.dataset.number = n;
-        btn.textContent = n;
-
-        // Apply completed styling if the number is already fully placed
-        if (countFn(n) >= 9) {
-            btn.classList.add('numpad-btn--completed');
-        }
-
-        numpad.appendChild(btn);
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
     }
 }
 

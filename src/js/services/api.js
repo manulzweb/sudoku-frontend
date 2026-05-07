@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 const API_BASE = 'https://sudoku-server-s22e.onrender.com/sudoku';
-=======
-const API_BASE = 'http://localhost:8000/sudoku';
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
 
 export async function generatePuzzleFromBackend(difficulty) {
     try {
@@ -38,7 +34,6 @@ export async function generatePuzzleFromBackend(difficulty) {
     }
 }
 
-<<<<<<< HEAD
 export async function validateBoard(board) {
     try {
         const response = await fetch(`${API_BASE}/validate`, {
@@ -54,20 +49,3 @@ export async function validateBoard(board) {
         return false;
     }
 }
-=======
-// export async function validateBoard(board) {
-//     try {
-//         const response = await fetch(`${API_BASE}/validate`, {
-//             method: 'POST',
-//             headers: { 'Content-Type': 'application/json' },
-//             body: JSON.stringify({ board })
-//         });
-//         if (!response.ok) throw new Error('Failed to validate board');
-//         const data = await response.json();
-//         return data.valid;
-//     } catch (error) {
-//         console.error('API Error:', error);
-//         return false;
-//     }
-// }
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d

@@ -1,10 +1,7 @@
 import { BOARD_SIZE, BOX_SIZE, EMPTY } from '../types/constants.js';
 
 const gridEl = document.getElementById('sudoku-grid');
-<<<<<<< HEAD
 let cellsCache = [];
-=======
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
 
 /**
  * Completely rebuilds and renders the Sudoku board from scratch.
@@ -15,16 +12,11 @@ let cellsCache = [];
  */
 export function renderBoard(board, given, notes) {
     gridEl.innerHTML = '';
-<<<<<<< HEAD
     const fragment = document.createDocumentFragment();
     cellsCache = [];
 
     for (let row = 0; row < BOARD_SIZE; row++) {
         cellsCache[row] = [];
-=======
-
-    for (let row = 0; row < BOARD_SIZE; row++) {
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
         for (let col = 0; col < BOARD_SIZE; col++) {
             const cell = document.createElement('div');
             cell.className = 'cell';
@@ -45,18 +37,12 @@ export function renderBoard(board, given, notes) {
 
             fillCellContent(cell, board[row][col], given[row][col], notes[row][col]);
 
-<<<<<<< HEAD
             cellsCache[row][col] = cell;
             fragment.appendChild(cell);
         }
     }
     
     gridEl.appendChild(fragment);
-=======
-            gridEl.appendChild(cell);
-        }
-    }
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
 }
 
 /**
@@ -69,11 +55,7 @@ export function renderBoard(board, given, notes) {
  * @param {Set} cellNotes - Set of notes currently placed in this cell.
  */
 export function refreshCell(row, col, value, isGiven, cellNotes) {
-<<<<<<< HEAD
     const cell = cellsCache[row] && cellsCache[row][col];
-=======
-    const cell = gridEl.querySelector(`[data-row="${row}"][data-col="${col}"]`);
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
     if (cell) fillCellContent(cell, value, isGiven, cellNotes);
 }
 
@@ -119,7 +101,6 @@ export function highlightCells(row, col, board) {
     const boxRow = Math.floor(row / BOX_SIZE) * BOX_SIZE;
     const boxCol = Math.floor(col / BOX_SIZE) * BOX_SIZE;
 
-<<<<<<< HEAD
     for (let r = 0; r < BOARD_SIZE; r++) {
         for (let c = 0; c < BOARD_SIZE; c++) {
             const cell = cellsCache[r][c];
@@ -142,47 +123,17 @@ export function highlightCells(row, col, board) {
             }
         }
     }
-=======
-    gridEl.querySelectorAll('.cell').forEach(cell => {
-        const r = parseInt(cell.dataset.row);
-        const c = parseInt(cell.dataset.col);
-
-        cell.classList.remove('cell--selected', 'cell--highlighted', 'cell--same-number');
-
-        if (r === row && c === col) {
-            cell.classList.add('cell--selected');
-        } else if (
-            r === row || c === col ||
-            (r >= boxRow && r < boxRow + BOX_SIZE &&
-             c >= boxCol && c < boxCol + BOX_SIZE)
-        ) {
-            cell.classList.add('cell--highlighted');
-        }
-
-        if (selectedValue !== EMPTY &&
-            board[r][c] === selectedValue &&
-            !(r === row && c === col)) {
-            cell.classList.add('cell--same-number');
-        }
-    });
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
 }
 
 /**
  * Removes all highlighting from the board.
  */
 export function clearHighlights() {
-<<<<<<< HEAD
     for (let r = 0; r < BOARD_SIZE; r++) {
         for (let c = 0; c < BOARD_SIZE; c++) {
             cellsCache[r][c].classList.remove('cell--selected', 'cell--highlighted', 'cell--same-number');
         }
     }
-=======
-    gridEl.querySelectorAll('.cell').forEach(c => {
-        c.classList.remove('cell--selected', 'cell--highlighted', 'cell--same-number');
-    });
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
 }
 
 /**
@@ -194,11 +145,7 @@ export function clearHighlights() {
  * @param {number} duration - The duration of the animation in milliseconds.
  */
 export function animateCell(row, col, className, duration) {
-<<<<<<< HEAD
     const cell = cellsCache[row] && cellsCache[row][col];
-=======
-    const cell = gridEl.querySelector(`[data-row="${row}"][data-col="${col}"]`);
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
     if (!cell) return;
     cell.classList.add(className);
     setTimeout(() => cell.classList.remove(className), duration);
@@ -211,11 +158,7 @@ export function animateCell(row, col, className, duration) {
  * @param {number} col - The column index.
  */
 export function markCellError(row, col) {
-<<<<<<< HEAD
     const cell = cellsCache[row] && cellsCache[row][col];
-=======
-    const cell = gridEl.querySelector(`[data-row="${row}"][data-col="${col}"]`);
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
     if (cell) cell.classList.add('cell--error');
 }
 
@@ -226,11 +169,7 @@ export function markCellError(row, col) {
  * @param {number} col - The column index.
  */
 export function clearCellError(row, col) {
-<<<<<<< HEAD
     const cell = cellsCache[row] && cellsCache[row][col];
-=======
-    const cell = gridEl.querySelector(`[data-row="${row}"][data-col="${col}"]`);
->>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
     if (cell) cell.classList.remove('cell--error');
 }
 
