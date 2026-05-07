@@ -1,0 +1,30 @@
+# Dependencias (esta es la más pesada, nunca se sube)
+node_modules/
+
+# Producción (como hablamos, GitHub Actions generará esto)
+dist/
+dist-ssr/
+*.local
+
+# Logs (archivos de error que genera npm)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Variables de entorno (¡MUY IMPORTANTE! Aquí van tus llaves secretas)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos del Sistema Operativo
+.DS_Store
+Thumbs.db
+
+# Configuración de Editores (opcional, pero recomendado)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj

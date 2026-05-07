@@ -1,0 +1,76 @@
+/* ============================================
+   ANIMATIONS — Keyframes & Transitions
+   ============================================ */
+
+@keyframes ambientFloat1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(60px, 40px) scale(1.15); }
+}
+
+@keyframes ambientFloat2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-50px, -30px) scale(1.1); }
+}
+
+@keyframes cellShake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-3px); }
+    40% { transform: translateX(3px); }
+    60% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
+}
+
+@keyframes cellPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeSlideUp {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes boardReveal {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes numberPlace {
+    0% { opacity: 0; transform: scale(0.5); }
+    60% { transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* ── Board entrance ── */
+#sudoku-grid {
+    animation: boardReveal 0.5s var(--ease-out) both;
+}
+
+/* ── Staggered cell entrance ── */
+.cell--animate-in {
+    animation: fadeIn 0.2s var(--ease-out) both;
+}
+
+/* ── Number placement ── */
+.cell--number-placed {
+    animation: numberPlace 0.25s var(--ease-spring);
+}
+
+/* ── Controls entrance ── */
+#controls {
+    animation: fadeSlideUp 0.4s var(--ease-out) 0.15s both;
+}
+
+#numpad {
+    animation: fadeSlideUp 0.4s var(--ease-out) 0.25s both;
+}
+
+#action-bar {
+    animation: fadeSlideUp 0.4s var(--ease-out) 0.2s both;
+}

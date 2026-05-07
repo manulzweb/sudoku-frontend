@@ -1,0 +1,116 @@
+/* ============================================
+   BASE STYLES — Reset & Global
+   ============================================ */
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-ui);
+    background: var(--bg-body);
+    color: var(--text-primary);
+    min-height: 100dvh;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: var(--space-lg);
+}
+
+/* ── Ambient background glows ── */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::before {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--accent-primary-glow), transparent 70%);
+    top: -100px;
+    left: -100px;
+    animation: ambientFloat1 12s ease-in-out infinite alternate;
+}
+
+body::after {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(0, 212, 170, 0.2), transparent 70%);
+    bottom: -80px;
+    right: -80px;
+    animation: ambientFloat2 15s ease-in-out infinite alternate;
+}
+
+/* ── Selection ── */
+::selection {
+    background: var(--accent-primary-soft);
+    color: var(--text-primary);
+}
+
+/* ── Focus Visible ── */
+:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: var(--radius-full);
+}
+
+/* ── Button Reset ── */
+button {
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    background: none;
+    color: inherit;
+    font-size: inherit;
+    line-height: 1;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Select Reset ── */
+select {
+    font-family: inherit;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Label ── */
+label {
+    font-family: var(--font-ui);
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}

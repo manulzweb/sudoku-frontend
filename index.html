@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="src/css/variables.css">
+    <link rel="stylesheet" href="src/css/base.css">
+    <link rel="stylesheet" href="src/css/layout.css">
+    <link rel="stylesheet" href="src/css/components.css">
+    <link rel="stylesheet" href="src/css/animations.css">
+</head>
+
+<body>
+    <section id="game-container">
+        <div id="sudoku-grid"></div>
+        <div id="controls">
+            <button id="new-game-btn">New Game</button>
+            <div id="difficulty-controls">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                    <option value="expert">Expert</option>
+                </select>
+            </div>
+            <div id="timer">00:00</div>
+            <div id="validation-controls">
+                <label for="validate-moves">Validate Moves:</label>
+                <input type="checkbox" id="validate-moves">
+            </div>
+        </div>
+        <div id="message" class="message"></div>
+    </section>
+
+    <!-- type="module" permite usar import/export entre archivos -->
+    <script src="src/js/main.js" type="module"></script>
+</body>
+
+</html>
