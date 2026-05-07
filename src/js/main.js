@@ -78,7 +78,11 @@ async function startGame() {
 
         resetState(puzzleData.puzzle, puzzleData.solution, puzzleData.given);
         clearTimerSave(); // Clear timer on fresh game     
+        
+        renderBoard(gameState.board, gameState.given, gameState.notes);
+        renderActionBar(gameState.notesMode);
         renderNumpad(countNumber);
+        
         clearMessage();
 
         startTimer((timeStr) => {
