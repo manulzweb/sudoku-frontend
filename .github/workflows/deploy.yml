@@ -2,12 +2,16 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # Si tu rama principal se llama master, cambia esto
+    branches: ["main"]
 
 permissions:
   contents: read
   pages: write
   id-token: write
+
+# Esto le dice a GitHub que use Node 24 para las acciones
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-and-deploy:
@@ -19,7 +23,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24 # Actualizado a la versión que pide GitHub
           cache: 'npm'
 
       - name: Install dependencies
