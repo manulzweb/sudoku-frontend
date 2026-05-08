@@ -58,8 +58,12 @@
     font-size: var(--fs-sm);
     font-weight: 500;
     color: var(--accent-secondary);
+<<<<<<< HEAD
     transition: opacity var(--duration-base) var(--ease-out),
                 color var(--duration-base) var(--ease-out);
+=======
+    transition: all var(--duration-base) var(--ease-out);
+>>>>>>> b8a0cdea78e2ace1aa3a891a228241e09230ac1d
     overflow: hidden;
 }
 
