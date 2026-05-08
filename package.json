@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "sudoku",
   "version": "1.0.0",
   "description": "A full-stack, responsive Sudoku web application featuring puzzle generation, real-time validation, and an automated solver using a backtracking algorithm. Built with a clean architecture separating a Vanilla JavaScript frontend and a high-performance FastAPI backend.",
   "main": "index.js",
